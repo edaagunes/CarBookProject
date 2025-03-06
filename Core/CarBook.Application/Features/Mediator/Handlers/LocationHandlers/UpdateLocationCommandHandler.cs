@@ -5,11 +5,11 @@ using MediatR;
 
 namespace CarBook.Application.Features.Mediator.Handlers.LocationHandlers
 {
-	public class UpdateSocialMediaCommandHandler : IRequestHandler<UpdateLocationCommand>
+	public class UpdateLocationCommandHandler : IRequestHandler<UpdateLocationCommand>
 	{
 		private readonly IRepository<Location> _repository;
 
-		public UpdateSocialMediaCommandHandler(IRepository<Location> repository)
+		public UpdateLocationCommandHandler(IRepository<Location> repository)
 		{
 			_repository = repository;
 		}

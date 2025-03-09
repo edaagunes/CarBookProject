@@ -12,6 +12,8 @@ using Infrastructure.CarBook.Persistence.Context;
 using CarBook.Application.Services;
 using CarBook.Application.Interfaces.BlogInterfaces;
 using CarBook.Persistence.Repositories.BlogRepositories;
+using CarBook.Application.Interfaces.CarPricingInterfaces;
+using CarBook.Persistence.Repositories.CarPricingRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,7 @@ builder.Services.AddScoped<CarBookContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
 builder.Services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository));
+builder.Services.AddScoped(typeof(ICarPricingRepository), typeof(CarPricingRepository));
 
 // Add services to the container.
 builder.Services.AddScoped<GetAboutQueryHandler>();

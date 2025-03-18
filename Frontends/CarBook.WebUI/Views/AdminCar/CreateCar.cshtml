@@ -1,0 +1,66 @@
+﻿@model CreateCarDto
+@{
+	ViewData["Title"] = "CreateCar";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+
+						<h4 class="card-title">Yeni Araç Girişi</h4>
+						<p class="card-subtitle mb-4"></p>
+
+						<form method="post">
+							<div class="form-group">
+								<label for="exampleInputBrand">Marka</label>
+								@Html.DropDownListFor(x => x.BrandId, (List<SelectListItem>)ViewBag.Brands, new { @class = "form-control" })
+							</div>
+							<div class="form-group">
+								<label for="exampleInputModel">Model</label>
+								<input type="text" class="form-control" id="exampleInputModel" asp-for="Model" placeholder="Model Bilgisi">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputModel">Kapak Görseli</label>
+								<input type="text" class="form-control" id="exampleInputModel" asp-for="CoverImageUrl" placeholder="Görsel Url Bilgisi">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputModel">Km Bilgisi</label>
+								<input type="text" class="form-control" id="exampleInputModel" asp-for="Km" placeholder="Km Bilgisi">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputModel">Vites Türü</label>
+								<input type="text" class="form-control" id="exampleInputModel" asp-for="Transmission" placeholder="Vites Bilgisi">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputModel">Koltuk Sayısı</label>
+								<input type="number" class="form-control" id="exampleInputModel" asp-for="Seat" placeholder="Koltuk Bilgisi">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputModel">Bagaj Hacmi</label>
+								<input type="number" class="form-control" id="exampleInputModel" asp-for="Luggage" placeholder="Bagaj Bilgisi">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputModel">Yakıt Türü</label>
+								<input type="text" class="form-control" id="exampleInputModel" asp-for="Fuel" placeholder="Yakıt Bilgisi">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputModel">Büyük Kapak Görseli</label>
+								<input type="text" class="form-control" id="exampleInputModel" asp-for="BigImageUrl" placeholder="Büyük Görsel Url Bilgisi">
+							</div>
+							<button type="submit" class="btn btn-primary waves-effect waves-light">Aracı Ekle</button>
+						</form>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

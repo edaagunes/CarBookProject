@@ -1,4 +1,4 @@
-﻿@model List<ResultCategoryDto>
+﻿@model List<ResultAllBlogsWithAuthorDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
@@ -11,7 +11,7 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Blog Kategorileri Listesi</h4>
+                        <h4 class="card-title">Blog Listesi</h4>
                         <p class="card-subtitle mb-4"></p>
 
                         <div class="table-responsive">
@@ -19,10 +19,13 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Başlık</th>
+                                        <th>Yazar</th>
                                         <th>Kategori</th>
+                                        <th>Tarih</th>
                                         <th>Sil</th>
-                                        <th>Güncelle</th>
-                                        <th>Kategoriye Ait Bloglar</th>
+                                        <th>Blogu Aç</th>
+                                        <th>Blog Yorumları</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -31,15 +34,17 @@
                                         count++;
                                         <tr>
                                             <th scope="row">@count</th>
-                                            <td>@item.Name</td>
-                                            <td><a href="/Admin/AdminCategory/RemoveCategory/@item.CategoryId" class="btn btn-outline-danger">Sil</a></td>
-                                            <td><a href="/Admin/AdminCategory/UpdateCategory/@item.CategoryId" class="btn btn-outline-success">Güncelle</a></td>
-                                            <td><a href="/Admin/AdminCategory/UpdateCategory/@item.CategoryId" class="btn btn-outline-secondary">Kategoriye Ait Bloglar</a></td>
+                                            <td>@item.Title</td>
+                                            <td>@item.AuthorName</td>
+                                            <td>@item.CategoryName</td>
+                                            <td>@item.CreatedDate.ToShortDateString()</td>
+                                            <td><a href="/Admin/AdminBlog/RemoveBlog/@item.BlogId" class="btn btn-outline-danger">Sil</a></td>
+                                            <td><a href="/Blog/BlogDetail/@item.BlogId" class="btn btn-outline-secondary">Blogu Aç</a></td>
+                                            <td><a href="/Admin/AdminComment/Index/@item.BlogId" class="btn btn-outline-dark">Yorumlar</a></td>
                                         </tr>
                                     }
                                 </tbody>
                             </table>
-                            <a href="/Admin/AdminCategory/CreateCategory/" class="btn btn-outline-primary">Yeni Kategori Girişi</a>
                         </div>
 
                     </div>
@@ -48,7 +53,4 @@
         </div>
     </div>
 </div>
-
-
-
 

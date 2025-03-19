@@ -1,0 +1,58 @@
+﻿@model List<ResultBannerDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Ana Sayfa Banner Alanı</h4>
+                        <p class="card-subtitle mb-4">Tema bütünlüğü bozulmaması için tek veri girişi yapınız.</p>
+
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Başlık</th>
+                                        <th>Açıklama</th>
+                                        <th>Video Url</th>
+                                        <th>Video Açıklama</th>
+                                        <th>Sil</th>
+                                        <th>Güncelle</th>
+                                        <th>Youtube'da Aç</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <th scope="row">@count</th>
+                                            <td>@item.Title</td>
+                                            <td>@item.Description</td>
+                                            <td>@item.VideoUrl</td>
+                                            <td>@item.VideoDescription</td>
+                                            <td><a href="/Admin/AdminBanner/RemoveBanner/@item.BannerId" class="btn btn-outline-danger">Sil</a></td>
+                                            <td><a href="/Admin/AdminBanner/UpdateBanner/@item.BannerId" class="btn btn-outline-success">Güncelle</a></td>
+                                            <td><a href="/Admin/AdminBanner/UpdateBanner/@item.BannerId" class="btn btn-outline-secondary">Youtube'da Aç</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <a href="/Admin/AdminBanner/CreateBanner/" class="btn btn-outline-primary">Yeni Banner Girişi</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,43 @@
+﻿@model CreateBannerDto
+@{
+    ViewData["Title"] = "CreateBanner";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+
+						<h4 class="card-title">Yeni Banner Girişi</h4>
+						<p class="card-subtitle mb-4"></p>
+
+						<form method="post">
+							<div class="form-group">
+								<label for="exampleInputModel">Banner Başlığı</label>
+								<input type="text" class="form-control" id="exampleInputModel" asp-for="Title" />
+							</div>
+							<div class="form-group">
+								<label for="exampleInputModel">Banner Açıklaması</label>
+								<input type="text" class="form-control" id="exampleInputModel" asp-for="Description">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputModel">Banner Video Url</label>
+								<input type="text" class="form-control" id="exampleInputModel" asp-for="VideoUrl">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputModel">Banner Video Açıklaması</label>
+								<input type="text" class="form-control" id="exampleInputModel" asp-for="VideoDescription">
+							</div>
+							<button type="submit" class="btn btn-primary waves-effect waves-light">Banner Ekle</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

@@ -44,7 +44,7 @@ namespace CarBook.WebApi.Controllers
 			await _createContactCommandHandler.Handle(command);
 			return Ok();
 		}
-		[HttpDelete]
+		[HttpDelete("{id}")]
 		public async Task<IActionResult> RemoveContact(int id)
 		{
 			await _removeContactCommandHandler.Handle(new RemoveContactCommand(id));

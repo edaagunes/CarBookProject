@@ -22,7 +22,7 @@ namespace CarBook.WebApi.Controllers
 			var values = await _mediator.Send(new GetTagCloudQuery());
 			return Ok(values);
 		}
-		[HttpGet("id")]
+		[HttpGet("{id}")]
 		public async Task<IActionResult> GetTagCloud(int id)
 		{
 			var value = await _mediator.Send(new GetTagCloudByIdQuery(id));
@@ -34,7 +34,7 @@ namespace CarBook.WebApi.Controllers
 			await _mediator.Send(command);
 			return Ok();
 		}
-		[HttpDelete]
+		[HttpDelete("{id}")]
 		public async Task<IActionResult> RemoveTagCloud(int id)
 		{
 			await _mediator.Send(new RemoveTagCloudCommand(id));

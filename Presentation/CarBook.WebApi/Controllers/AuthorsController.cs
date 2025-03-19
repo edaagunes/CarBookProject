@@ -22,7 +22,7 @@ namespace CarBook.WebApi.Controllers
 			var values = await _mediator.Send(new GetAuthorQuery());
 			return Ok(values);
 		}
-		[HttpGet("id")]
+		[HttpGet("{id}")]
 		public async Task<IActionResult> GetAuthor(int id)
 		{
 			var value = await _mediator.Send(new GetAuthorByIdQuery(id));
@@ -34,7 +34,7 @@ namespace CarBook.WebApi.Controllers
 			await _mediator.Send(command);
 			return Ok();
 		}
-		[HttpDelete]
+		[HttpDelete("{id}")]
 		public async Task<IActionResult> RemoveAuthor(int id)
 		{
 			await _mediator.Send(new RemoveAuthorCommand(id));

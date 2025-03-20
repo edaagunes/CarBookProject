@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.Application.Features.Mediator.Results.LocationResults
+namespace CarBook.Dto.LocationDtos
 {
-	public class GetLocationByIdQueryResult
+	public class CreateLocationDto
 	{
-		public int LocationId { get; set; }
 		public string LocationName { get; set; }
 	}
 }

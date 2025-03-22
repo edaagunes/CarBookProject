@@ -20,6 +20,8 @@ using CarBook.Application.Features.RepositoryPattern;
 using CarBook.Persistence.Repositories.CommentRepositories;
 using CarBook.Application.Interfaces.StatisticsInterfaces;
 using CarBook.Persistence.Repositories.StatisticRepositories;
+using CarBook.Application.Interfaces.RentACarInterfaces;
+using CarBook.Persistence.Repositories.RentACarRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +33,7 @@ builder.Services.AddScoped(typeof(ICarPricingRepository), typeof(CarPricingRepos
 builder.Services.AddScoped(typeof(ITagCloudRepository), typeof(TagCloudRepository));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(CommentRepository<>));
 builder.Services.AddScoped(typeof(IStatisticRepository), typeof(StatisticRepository));
+builder.Services.AddScoped(typeof(IRentACarRepository), typeof(RentACarRepository));
 
 // Add services to the container.
 builder.Services.AddScoped<GetAboutQueryHandler>();

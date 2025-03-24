@@ -1,0 +1,47 @@
+﻿@model CreateReservationDto
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+<div class="col-md-12 block-9 mb-md-5">
+	<form method="post" class="bg-light p-5 contact-form">
+		<h3 class="alert alert-success">Araç Rezervasyon Formu</h3>
+		<br />
+
+		<input type="hidden" class="form-control" asp-for="CarId" value="@ViewBag.carid" placeholder="Almak İstediğiniz Araba">
+
+		<div class="form-group">
+			<input type="text" class="form-control" asp-for="Name" placeholder="Ad">
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" asp-for="Surname" placeholder="Soyad">
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" asp-for="Email" placeholder="Email">
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" asp-for="Phone" placeholder="Telefon">
+		</div>
+		<div class="form-group">
+			@Html.DropDownListFor(x => x.PickUpLocationId, (List<SelectListItem>)ViewBag.v, "Almak İstediğiniz Lokasyon", new { @class = "form-control"})
+		</div>
+		<div class="form-group">
+			@Html.DropDownListFor(x => x.DropOffLocationId, (List<SelectListItem>)ViewBag.v, "Teslim Etmek İstediğiniz Lokasyon", new { @class = "form-control"})
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" asp-for="Age" placeholder="Yaşınız">
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" asp-for="DriverLicenseYear" placeholder="Ehliyet Yılınız">
+		</div>
+		<div class="form-group">
+			<textarea cols="30" rows="5" asp-for="Description" class="form-control" placeholder="Varsa Eklemek İstedikleriniz"></textarea>
+		</div>
+		<div class="form-group">
+			<input type="submit" value="Rezervasyonu Tamamla" class="btn btn-primary py-3 px-5">
+		</div>
+	</form>
+</div>
+
+

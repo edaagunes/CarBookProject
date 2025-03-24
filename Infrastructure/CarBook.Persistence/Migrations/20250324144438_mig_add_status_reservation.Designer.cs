@@ -4,6 +4,7 @@ using Infrastructure.CarBook.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarBook.Persistence.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    partial class CarBookContextModelSnapshot : ModelSnapshot
+    [Migration("20250324144438_mig_add_status_reservation")]
+    partial class mig_add_status_reservation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -553,13 +556,12 @@ namespace CarBook.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DriverLicenseYear")
                         .HasColumnType("int");
 
-                    b.Property<int>("DropOffLocationId")
+                    b.Property<int?>("DropOffLocationId")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -574,7 +576,7 @@ namespace CarBook.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PickUpLocationId")
+                    b.Property<int?>("PickUpLocationId")
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
@@ -835,13 +837,11 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasOne("CarBook.Domain.Entities.Location", "DropOffLocation")
                         .WithMany("DropOffReservation")
-                        .HasForeignKey("DropOffLocationId")
-                        .IsRequired();
+                        .HasForeignKey("DropOffLocationId");
 
                     b.HasOne("CarBook.Domain.Entities.Location", "PickUpLocation")
                         .WithMany("PickUpReservation")
-                        .HasForeignKey("PickUpLocationId")
-                        .IsRequired();
+                        .HasForeignKey("PickUpLocationId");
 
                     b.Navigation("Car");
 

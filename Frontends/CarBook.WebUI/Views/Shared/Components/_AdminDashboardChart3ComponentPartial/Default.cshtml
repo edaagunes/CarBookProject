@@ -1,0 +1,45 @@
+﻿
+
+<div class="col-lg-4">
+	<div class="card">
+		<div class="card-body">
+
+			<h4 class="card-title d-inline-block">Lokasyonlar</h4>
+
+			<div style="height: 260px;">
+				<canvas id="my3chart" height="220px"></canvas>
+				<script>
+					var values=document.getElementById('my3chart').getContext('2d');
+					var mychart=new Chart(values,{
+						type:'bar',
+						data:{
+							labels:['Sabiha Gökçen H.L','Kadıköy Rıhtım','Kartal Köprüsü','İstanbul H.L','Maltepe Sahil','Bahçelievler Meydan'],
+							datasets:[{
+								label:'Araç Lokasyon Listesi',
+								data:[20,5,2,15,5,1],
+								backgroundColor:[
+									'rgba(128,99,132,0.7)',
+									'rgba(54,162,235,0.7)',
+									'rgba(255,206,86,0.7)',
+									'rgba(75,192,192,0.7)',
+									'rgba(153,102,255,0.7)',
+									'rgba(255,159,64,0.7)',
+								],
+								borderColor:[
+									'rgba(255,99,132,1)',
+									'rgba(54,162,42,1)',
+									'rgba(128,206,86,1)',
+									'rgba(75,110,192,1)',
+									'rgba(153,102,255,1)',
+									'rgba(185,159,12,1)',
+								],
+								borderWith:1
+							}]
+						}
+					});
+				</script>
+			</div>
+
+		</div>
+	</div>
+</div>

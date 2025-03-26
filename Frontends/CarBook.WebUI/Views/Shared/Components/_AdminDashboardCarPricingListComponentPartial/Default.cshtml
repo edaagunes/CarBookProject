@@ -1,0 +1,40 @@
+﻿@model List<ResultGetCarPricingWithTimePeriodDto>
+
+<div class="col-xl-6">
+	<div class="card">
+		<div class="card-body">
+
+			<h4 class="card-title">Araç Kiralama Ücretleri</h4>
+			<p class="card-subtitle mb-4 font-size-13">
+				Sık Tercih Edilen Araçların Ücretleri
+			</p>
+
+			<div class="table-responsive">
+				<table class="table table-centered table-hover table-xl mb-0" id="recent-orders">
+					<thead>
+						<tr>
+							<th class="border-top-0">Marka</th>
+							<th class="border-top-0">Model</th>
+							<th class="border-top-0">Günlük Fiyat</th>
+							<th class="border-top-0">Haftalık Fiyat</th>
+							<th class="border-top-0">Aylık Fiyat</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							<tr>
+								<td class="text-truncate">@item.Brand</td>
+								<td class="text-truncate">@item.Model</td>
+								<td class="text-truncate">₺ @item.DailyPrice</td>
+								<td class="text-truncate">₺ @item.WeeklyPrice</td>
+								<td class="text-truncate">₺ @item.MonthlyPrice</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+
+		</div> <!-- end card-body-->
+	</div> <!-- end card-->
+</div> 

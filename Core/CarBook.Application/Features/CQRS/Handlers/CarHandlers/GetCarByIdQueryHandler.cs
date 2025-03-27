@@ -28,7 +28,7 @@ namespace CarBook.Application.Features.CQRS.Handlers.CarHandlers
 				Luggage = values.Luggage,
 				Model = values.Model,
 				Seat = values.Seat,
-				Transmission = values.Transmission
+				Transmission = values.Transmission,
 			};
 		}
 	}

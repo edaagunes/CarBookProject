@@ -28,6 +28,10 @@ using CarBook.Application.Interfaces.CarDescriptionInterfaces;
 using CarBook.Persistence.Repositories.CarDescriptionRepositories;
 using CarBook.Application.Interfaces.ReviewInterfaces;
 using CarBook.Persistence.Repositories.ReviewRepositories;
+using FluentValidation.AspNetCore;
+using System.Reflection;
+using FluentValidation;
+using CarBook.Application.Validators.ReviewValidators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -84,6 +88,13 @@ builder.Services.AddScoped<UpdateContactCommandHandler>();
 builder.Services.AddScoped<RemoveContactCommandHandler>();
 
 builder.Services.AddApplicationService(builder.Configuration);
+
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateReviewValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<UpdateReviewValidator>();
+
+builder.Services.AddAuthorization();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

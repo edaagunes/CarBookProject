@@ -33,7 +33,7 @@
                                         <tr>
                                             <th scope="row">@count</th>
                                             <td>@item.title</td>
-                                            <td>@item.description</td>
+                                            <td>@item.description.Substring(0,100)...</td>
                                             <td>@item.imageUrl</td>
                                             <td><a href="/Admin/AdminAbout/RemoveAbout/@item.aboutId" class="btn btn-outline-danger">Sil</a></td>
                                             <td><a href="/Admin/AdminAbout/UpdateAbout/@item.aboutId" class="btn btn-outline-success">Güncelle</a></td>

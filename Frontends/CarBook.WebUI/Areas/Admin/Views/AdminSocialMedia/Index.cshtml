@@ -4,6 +4,8 @@
     Layout = "~/Views/AdminLayout/Index.cshtml";
     int count = 0;
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
 <div class="page-content">
     <div class="container-fluid">
@@ -35,7 +37,7 @@
                                             <th scope="row">@count</th>
                                             <td>@item.Name</td>
                                             <td>@item.Url</td>
-                                            <td>@item.Icon</td>
+                                            <td><span class="@item.Icon"></span></td>
                                             <td><a href="/Admin/AdminSocialMedia/RemoveSocialMedia/@item.SocialMediaId" class="btn btn-outline-danger">Sil</a></td>
                                             <td><a href="/Admin/AdminSocialMedia/UpdateSocialMedia/@item.SocialMediaId" class="btn btn-outline-success">Güncelle</a></td>
                                             <td><a href="/Admin/AdminSocialMedia/UpdateSocialMedia/@item.SocialMediaId" class="btn btn-outline-dark">Git</a></td>

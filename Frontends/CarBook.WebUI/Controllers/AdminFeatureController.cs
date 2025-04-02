@@ -18,7 +18,7 @@ namespace CarBook.WebUI.Controllers
 			_httpClientFactory = httpClientFactory;
 		}
 
-		public async Task<IActionResult> IndexAsync()
+		public async Task<IActionResult> Index()
 		{
 			var client = _httpClientFactory.CreateClient();
 			var responseMessage = await client.GetAsync("https://localhost:7053/api/Features");

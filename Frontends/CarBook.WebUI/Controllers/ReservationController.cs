@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace CarBook.WebUI.Controllers
@@ -24,7 +25,9 @@ namespace CarBook.WebUI.Controllers
 			ViewBag.v2 = "Araç Rezervasyon Formu";
 			ViewBag.carid = id;
 
+			var token = User.Claims.FirstOrDefault(x => x.Type == "accessToken")?.Value;
 			var client = _httpClientFactory.CreateClient();
+			client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 			var responseMessage = await client.GetAsync("https://localhost:7053/api/Locations");
 
 			var jsonData = await responseMessage.Content.ReadAsStringAsync();

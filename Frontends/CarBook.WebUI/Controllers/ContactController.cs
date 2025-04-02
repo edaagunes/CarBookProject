@@ -17,6 +17,8 @@ namespace CarBook.WebUI.Controllers
 		[HttpGet]
 		public IActionResult Index()
 		{
+			ViewBag.v1 = "İLETİŞİM";
+			ViewBag.v2 = "Bize Ulaşın";
 			return View();
 		}
 		[HttpPost]

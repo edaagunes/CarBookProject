@@ -33,25 +33,25 @@
 										<p class="btn-custom"><a href="#">Bu Aracı Kiralayın</a></p>
 										<div class="price-rate">
 											<h3>
-												<span class="num"><small class="currency">₺</small> @item.DailyPrice</span>
+												<span class="num"><small class="currency">₺</small> @item.DailyPrice.ToString("#,##0.00")</span>
 												<span class="per">/günlük</span>
 											</h3>										
 										</div>
 									</td>
 									<td class="price">
-										<p class="btn-custom"><a href="#">Rent a car</a></p>
+										<p class="btn-custom"><a href="#">Bu Aracı Kiralayın</a></p>
 										<div class="price-rate">
 											<h3>
-												<span class="num"><small class="currency">₺</small> @item.WeeklyPrice</span>
+												<span class="num"><small class="currency">₺</small> @item.WeeklyPrice.ToString("#,##0.00")</span>
 												<span class="per">/haftalık</span>
 											</h3>
 										</div>
 									</td>
 									<td class="price">
-										<p class="btn-custom"><a href="#">Rent a car</a></p>
+										<p class="btn-custom"><a href="/Reservation/Index">Bu Aracı Kiralayın</a></p>
 										<div class="price-rate">
 											<h3>
-												<span class="num"><small class="currency">₺</small> @item.MonthlyPrice</span>
+												<span class="num"><small class="currency">₺</small> @item.MonthlyPrice.ToString("#,##0.00")</span>
 												<span class="per">/aylık</span>
 											</h3>
 										</div>

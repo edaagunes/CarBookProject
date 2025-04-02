@@ -2,7 +2,7 @@
 
 <div class="col-md-8 ftco-animate">
 	<h2 class="mb-3">@Model.Title</h2>
-	<p>@Model.Description</p>
+	<p>@Html.Raw(Model.Description)</p>
 
 	@await Component.InvokeAsync("_BlogDetailCloudTagByBlogComponentPartial", new { id = ViewBag.blogid })
 

@@ -17,10 +17,10 @@
                             <div class="meta mb-3">
                                 <div><a href="#">@item.CreatedDate.ToShortDateString()</a></div>
                                 <div><a href="#">@item.AuthorName</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                @* <div><a href="#" class="meta-chat"><span class="icon-chat"></span> </a></div> *@
                             </div>
                             <h3 class="heading mt-2"><a href="#">@item.Title</a></h3>
-                            <p>@item.Description</p>
+                            <p>@item.Description.Substring(0,100)</p>
                             <p><a href="/Blog/BlogDetail/@item.BlogId" class="btn btn-primary">Devamını Oku... <span class="icon-long-arrow-right"></span></a></p>
                         </div>
                     </div>

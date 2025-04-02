@@ -1488,15 +1488,15 @@ div.dt-button-info h2 {
 
 /* 19. Auth*/
 .bg-login {
-  background: url("../images/bg-login.jpg");
-  background-position: center;
-  background-size: cover;
+    background: url("/Admin/vertical/assets/images/login.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
 .bg-register {
-  background: url("../images/bg-register.jpg");
-  background-position: center;
-  background-size: cover;
+    background: url("/Admin/vertical/assets/images/register.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
 /* 20. Pricing */

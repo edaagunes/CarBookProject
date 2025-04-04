@@ -42,6 +42,8 @@ using CarBook.Persistence.Repositories.AppRoleRepositories;
 using CarBook.WebApi.Hubs;
 using CarBook.Application.Interfaces.BrandInterfaces;
 using CarBook.Persistence.Repositories.BrandRepositories;
+using CarBook.Application.Interfaces.AuthorInterfaces;
+using CarBook.Persistence.Repositories.AuthorRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -89,6 +91,7 @@ builder.Services.AddScoped(typeof(IReviewRepository), typeof(ReviewRepository));
 builder.Services.AddScoped(typeof(IAppUserRepository), typeof(AppUserRepository));
 builder.Services.AddScoped(typeof(IAppRoleRepository), typeof(AppRoleRepository));
 builder.Services.AddScoped(typeof(IBrandRepository), typeof(BrandRepository));
+builder.Services.AddScoped(typeof(IAuthorRepository), typeof(AuthorRepository));
 
 // Add services to the container.
 builder.Services.AddScoped<GetAboutQueryHandler>();

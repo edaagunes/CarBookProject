@@ -1,0 +1,30 @@
+﻿@model List<BlogsByAuthorIdDto>
+@{
+    ViewData["Title"] = "GetAllBlogByAuthorId";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <h4 class="mb-4">Yazar: <strong>@Model.FirstOrDefault()?.Name</strong> - Blog Listesi</h4>
+
+        <div class="row">
+            @foreach (var blog in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="@blog.CoverImageUrl" class="card-img-top" alt="Blog Kapak Görseli" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">@blog.Title</h5>
+                            <p class="card-text text-muted" style="font-size:14px;">@blog.Description.Substring(0, Math.Min(blog.Description.Length, 100))...</p>
+                            <p class="card-text"><small class="text-muted">Yayın Tarihi: @blog.CreatedDate.ToString("dd MMMM yyyy")</small></p>
+                            <a href="/Blog/BlogDetail/@blog.BlogId" class="btn btn-outline-primary btn-sm">Detaylar</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <a href="/Admin/AdminAuthor/Index" class="btn btn-secondary">← Yazarlara Geri Dön</a>
+    </div>
+</div>

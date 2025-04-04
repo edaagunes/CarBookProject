@@ -85,5 +85,18 @@ namespace CarBook.WebUI.Controllers
 			}
 			return View();
 		}
+
+		public async Task<IActionResult> GetCarListByBrandId(int id)
+		{
+			var client = _httpClientFactory.CreateClient();
+			var responseMessage = await client.GetAsync($"https://localhost:7053/api/Brands/GetCarListByBrandId?id={id}");
+			if (responseMessage.IsSuccessStatusCode)
+			{
+				var jsonData = await responseMessage.Content.ReadAsStringAsync();
+				var values = JsonConvert.DeserializeObject<List<CarListByBrandIdDto>>(jsonData);
+				return View(values);
+			}
+			return View();
+		}
 	}
 }

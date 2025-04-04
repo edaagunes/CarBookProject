@@ -15,20 +15,29 @@ namespace CarBook.WebApi.Controllers
 		private readonly GetBrandQueryHandler _getBrandQueryHandler;
 		private readonly UpdateBrandCommandHandler _updateBrandCommandHandler;
 		private readonly RemoveBrandCommandHandler _removeBrandCommandHandler;
+		private readonly GetCarListByBrandIdQueryHandler _getCarListByBrandIdQueryHandler;
 
-		public BrandsController(CreateBrandCommandHandler createBrandCommandHandler, GetBrandByIdQueryHandler getBrandByIdQueryHandler, GetBrandQueryHandler getBrandQueryHandler, UpdateBrandCommandHandler updateBrandCommandHandler, RemoveBrandCommandHandler removeBrandCommandHandler)
+		public BrandsController(CreateBrandCommandHandler createBrandCommandHandler, GetBrandByIdQueryHandler getBrandByIdQueryHandler, GetBrandQueryHandler getBrandQueryHandler, UpdateBrandCommandHandler updateBrandCommandHandler, RemoveBrandCommandHandler removeBrandCommandHandler, GetCarListByBrandIdQueryHandler getCarListByBrandIdQueryHandler)
 		{
 			_createBrandCommandHandler = createBrandCommandHandler;
 			_getBrandByIdQueryHandler = getBrandByIdQueryHandler;
 			_getBrandQueryHandler = getBrandQueryHandler;
 			_updateBrandCommandHandler = updateBrandCommandHandler;
 			_removeBrandCommandHandler = removeBrandCommandHandler;
+			_getCarListByBrandIdQueryHandler = getCarListByBrandIdQueryHandler;
 		}
 
 		[HttpGet]
 		public async Task<IActionResult> BrandList()
 		{
 			var values = await _getBrandQueryHandler.Handle();
+			return Ok(values);
+		}
+
+		[HttpGet("GetCarListByBrandId")]
+		public async Task<IActionResult> GetCarListByBrandId(int id)
+		{
+			var values = await _getCarListByBrandIdQueryHandler.Handle(new GetCarListByBrandIdQuery(id));
 			return Ok(values);
 		}
 

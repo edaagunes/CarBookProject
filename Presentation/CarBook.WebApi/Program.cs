@@ -40,6 +40,8 @@ using CarBook.Persistence.Repositories.AppUserRepositories;
 using CarBook.Application.Interfaces.AppRoleInterfaces;
 using CarBook.Persistence.Repositories.AppRoleRepositories;
 using CarBook.WebApi.Hubs;
+using CarBook.Application.Interfaces.BrandInterfaces;
+using CarBook.Persistence.Repositories.BrandRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -86,6 +88,7 @@ builder.Services.AddScoped(typeof(ICarDescriptionRepository), typeof(CarDescript
 builder.Services.AddScoped(typeof(IReviewRepository), typeof(ReviewRepository));
 builder.Services.AddScoped(typeof(IAppUserRepository), typeof(AppUserRepository));
 builder.Services.AddScoped(typeof(IAppRoleRepository), typeof(AppRoleRepository));
+builder.Services.AddScoped(typeof(IBrandRepository), typeof(BrandRepository));
 
 // Add services to the container.
 builder.Services.AddScoped<GetAboutQueryHandler>();
@@ -102,6 +105,7 @@ builder.Services.AddScoped<RemoveBannerCommandHandler>();
 
 builder.Services.AddScoped<GetBrandQueryHandler>();
 builder.Services.AddScoped<GetBrandByIdQueryHandler>();
+builder.Services.AddScoped<GetCarListByBrandIdQueryHandler>();
 builder.Services.AddScoped<CreateBrandCommandHandler>();
 builder.Services.AddScoped<UpdateBrandCommandHandler>();
 builder.Services.AddScoped<RemoveBrandCommandHandler>();

@@ -1,9 +1,10 @@
-﻿@model List<ResultBrandDto>
+﻿@model List<CarListByBrandIdDto>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "GetCarListByBrandId";
     Layout = "~/Views/AdminLayout/Index.cshtml";
     int count = 0;
 }
+
 
 <div class="page-content">
     <div class="container-fluid">
@@ -11,7 +12,7 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Araç Marka Listesi</h4>
+                        <h4 class="card-title">Markaya Ait Araçlar</h4>
                         <p class="card-subtitle mb-4"></p>
 
                         <div class="table-responsive">
@@ -19,10 +20,9 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Marka Adı</th>
-                                        <th>Sil</th>
-                                        <th>Güncelle</th>
-                                        <th>Markaya Ait Araçlar</th>
+                                        <th>Marka</th>
+                                        <th>Araç Id</th>
+                                        <th>Model</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -31,15 +31,14 @@
                                         count++;
                                         <tr>
                                             <th scope="row">@count</th>
-                                            <td>@item.name</td>
-                                            <td><a href="/AdminBrand/RemoveBrand/@item.brandId" class="btn btn-outline-danger">Sil</a></td>
-                                            <td><a href="/AdminBrand/UpdateBrand/@item.brandId" class="btn btn-outline-success">Güncelle</a></td>
-                                            <td><a href="/AdminBrand/GetCarListByBrandId/@item.brandId" class="btn btn-outline-secondary">Markaya Ait Araçlar</a></td>
+                                            <th scope="row">@item.BrandName</th>
+                                            <th scope="row">@item.CarId</th>
+                                            <th scope="row"><img src="@item.CoverImageUrl" width="50" height="50" style="margin-right:10px;border-radius:25%" /> @item.Model</th>
                                         </tr>
                                     }
                                 </tbody>
                             </table>
-                            <a href="/AdminBrand/CreateBrand/" class="btn btn-outline-primary">Yeni Marka Girişi</a>
+                            <a href="javascript:history.back()" class="btn btn-outline-primary">Geri Dön</a>
                         </div>
 
                     </div>
@@ -48,4 +47,6 @@
         </div>
     </div>
 </div>
+
+
 

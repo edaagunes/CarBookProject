@@ -2,7 +2,7 @@
 
 🚗 CarBook, kullanıcıların araç kiralama işlemleri yapabileceği, araçların detaylarına ulaşabileceği, lokasyona göre fiyatları görüntüleyebileceği ve kiralama işlemlerini kolayca gerçekleştirebileceği bir platformdur. Admin paneli üzerinden araçlar, lokasyonlar, bloglar, referanslar ve diğer içerikler yönetilebilir. Ayrıca, kullanıcılar araçlarla ilgili yorumlar yapabilir ve bu yorumları inceleyebilirler.
 
-Bu proje, ASP.NET Core 9.0 Web API ve MVC ile geliştirilmiştir ve Onion Architecture mimarisi kullanılarak yapılandırılmıştır. CQRS, Mediator, Repository Design Pattern ile uygulamanın sürdürülebilirliği ve ölçeklenebilirliği artırılmıştır. JWT, SignalR ve FluentValidation gibi teknolojiler ile güvenlik, canlı veri takibi ve doğrulama işlemleri yapılmaktadır.
+Bu proje, ASP.NET Core 8.0 Web API ve MVC ile geliştirilmiştir ve Onion Architecture mimarisi kullanılarak yapılandırılmıştır. CQRS, Mediator, Repository Design Pattern ile uygulamanın sürdürülebilirliği ve ölçeklenebilirliği artırılmıştır. JWT, SignalR ve FluentValidation gibi teknolojiler ile güvenlik, canlı veri takibi ve doğrulama işlemleri yapılmaktadır.
 
 ## ✨ [Web Site](#-web-site-1)
 
